@@ -16,11 +16,11 @@ options = OpenStruct.new
 
 OptionParser.new do |opts|
     opts.banner += " [arguments...]"
-    opts.separator "this program blows you"
+    opts.separator "fuzzer framework written in ruby"
     opts.version = "0.0.3"
 
     opts.on('-b', '--book BOOK', 'The BOOK') { |o| options.fuzz_book = o }
-    opts.on('-t', '--type_of_fuzzer FUZZTYPE', 'The type of fuzzer') { |o| options.fuzz_type = o }
+    opts.on('-f', '--fuzzer_type FUZZTYPE', 'The type of fuzzer') { |o| options.fuzz_type = o }
     opts.on('-a', '--adapter_name ADAPTERNAME', 'Adapter Type') { |o| options.adap_type = o }
     #opts.on('-c', '--count COUNT', 'Count of executions') { |o| options.count = o }
 
