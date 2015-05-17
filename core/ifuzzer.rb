@@ -1,3 +1,13 @@
+require 'optparse'
+require 'ostruct'
+
+DEBUG=1
+
+def debug(str)
+    if DEBUG==1
+        puts ":: #{str}"
+    end
+end
 
 # -- main --
 
@@ -9,10 +19,10 @@ OptionParser.new do |opts|
     opts.separator "this program blows you"
     opts.version = "0.0.3"
 
-    opts.on('-u', '--url URL', 'The read URL') { |o| options.read_url = o }
-    opts.on('-t', '--time_scope TSCOPE', 'The time scope (1/24/168)') { |o| options.time_scope = o }
-    opts.on('-n', '--needle NEEDLE', 'Search key word') { |o| options.needle = o }
-    opts.on('-p', '--points_gt POINTS_GT', 'Points greater than') { |o| options.points_gt = o }
+    opts.on('-b', '--book BOOK', 'The BOOK') { |o| options.fuzz_book = o }
+    opts.on('-t', '--type_of_fuzzer FUZZTYPE', 'The type of fuzzer') { |o| options.fuzz_type = o }
+    opts.on('-a', '--adapter_name ADAPTERNAME', 'Adapter Type') { |o| options.adap_type = o }
+    #opts.on('-c', '--count COUNT', 'Count of executions') { |o| options.count = o }
 
     begin
         opts.parse!
@@ -23,7 +33,7 @@ OptionParser.new do |opts|
     end
 end
 
-if options.read_url.nil? || options.time_scope.nil? 
+if options.fuzz_book.nil? || options.fuzz_type.nil? 
     $stderr.puts "error: missing arguments"
     $stderr.puts "(-h will show valid options)"
     exit 1
@@ -31,20 +41,12 @@ end
 
 debug("starting operation")
 
-input_url = options.read_url
+# required 
+fbook = options.fuzz_book
+ftype = options.fuzz_type
 
-scope_hours = options.time_scope
+# optional
+fadapter = "noval" if (fadapter = options.adap_type).nil?
+fcount = "noval" if (fcount = options.count).nil?
 
-containstr = "noval" if (containstr = options.needle).nil?
-points_gt = "noval" if (points_gt = options.points_gt).nil?
-
-# call print send the url 
-retval =  printMsg(input_url,scope_hours,containstr,points_gt)
-
-if retval[:count] > 0
-    puts retval[:msg]
-    exit 0
-else
-    puts "getter.rb: no-msgs-to-put (#{retval[:count]})"
-    exit 1
-end
+debug("book=#{fbook} | type=#{ftype}")
