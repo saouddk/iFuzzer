@@ -1,5 +1,6 @@
-require_relative '../books/bmp'
+require_relative '../blueprints/bmp'
 
-a = FileHeader.new
+a = BMP.new
+
 puts a.output
-puts a.bfType
+puts a.output.length

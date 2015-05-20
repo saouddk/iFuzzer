@@ -19,7 +19,7 @@ OptionParser.new do |opts|
     opts.separator "fuzzer framework written in ruby"
     opts.version = "0.0.3"
 
-    opts.on('-b', '--book BOOK', 'The BOOK') { |o| options.fuzz_book = o }
+    opts.on('-b', '--blueprint BOOK', 'The BLUEPRINT') { |o| options.fuzz_book = o }
     opts.on('-f', '--fuzzer_type FUZZTYPE', 'The type of fuzzer') { |o| options.fuzz_type = o }
     opts.on('-a', '--adapter_name ADAPTERNAME', 'Adapter Type') { |o| options.adap_type = o }
     #opts.on('-c', '--count COUNT', 'Count of executions') { |o| options.count = o }
