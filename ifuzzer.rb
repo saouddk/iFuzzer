@@ -57,5 +57,24 @@ console.addHelpCommand('help', 'Help')
 console.addExitCommand('exit', 'Exit from program')
 console.addAlias('quit', 'exit')
 
+puts "
+    
+    
+    
+     _)   _|                              
+      |  |    |   | _  / _  /   _ \   __| 
+      |  __|  |   |   /    /    __/  |    
+     _| _|   \__,_| ___| ___| \___| _|    
+                                      
+
+
+"
+puts "    [ifuzzer v0.0.1, @saouddk, @codecor]"
+puts ""
+puts ""
+puts "[] Book modules"
+puts "[] Adapter modules"
+puts "[] fuzzer modules"
+puts ""
 console.start("%s> ",[Dir.method(:pwd)])
 
