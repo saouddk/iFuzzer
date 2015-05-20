@@ -1,6 +1,6 @@
 require 'highline'
 require 'cli-console'
-
+require_relative 'core/dashboard'
 
 class ShellUI
     private
@@ -72,9 +72,9 @@ puts "
 puts "    [ifuzzer v0.0.1, @saouddk, @codecor]"
 puts ""
 puts ""
-puts "[] Book modules"
-puts "[] Adapter modules"
-puts "[] fuzzer modules"
+puts "[#{printModuleCount('adapters')}] Book modules"
+puts "[#{printModuleCount('adapters')}] Adapter modules"
+puts "[#{printModuleCount('adapters')}] fuzzer modules"
 puts ""
 console.start("%s> ",[Dir.method(:pwd)])
 
