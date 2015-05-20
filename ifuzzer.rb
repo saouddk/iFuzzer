@@ -72,9 +72,9 @@ puts "
 puts "    [ifuzzer v0.0.1, @saouddk, @codecor]"
 puts ""
 puts ""
-puts "[#{printModuleCount('adapters')}] Book modules"
-puts "[#{printModuleCount('adapters')}] Adapter modules"
-puts "[#{printModuleCount('adapters')}] fuzzer modules"
+puts "[#{printModuleCount('adapters')}] book modules"
+puts "[#{printModuleCount('books')}] adapter modules"
+puts "[#{printModuleCount('fuzzers')}] fuzzer modules"
 puts ""
 console.start("%s> ",[Dir.method(:pwd)])
 
